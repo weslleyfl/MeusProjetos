@@ -1,0 +1,28 @@
+-- Criar nova soution
+dotnet new sln
+
+dotnet new classlib
+
+criar projeto para tests ms test
+dotnet new mstest
+
+adicionar o projeto na solution
+dotnet sln add .\PaymentContext.Domain\PaymentContext.Domain.csproj
+
+
+dotnet restore
+
+dotnet build
+
+--- 
+Projetos.
+Domain - onde fica a regra de negocio
+Shared - onde voce compartilha itens/objetos com todos os projetos - tem mais sentidos quando tem varios dominios.
+Tests - Testes
+
+---
+Adicionar referencias entre os projetos
+dotnet add reference 
+Ex: Adicionando referencia para o meu dominio --domain recebe shared como referencia
+\PaymentContext.Domain> dotnet add reference ..\PaymentContext.Shared\PaymentContext.Shared.csproj
+

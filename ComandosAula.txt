@@ -1,4 +1,4 @@
--- Criar nova soution
+﻿-- Criar nova soution
 dotnet new sln
 
 dotnet new classlib
@@ -29,10 +29,34 @@ Ex: Adicionando referencia para o meu dominio --domain recebe shared como refere
 
 --GIT
 
+1 - Logar no github e criar um repositorio
+2 - Copiar o caminho que esta no downloads -- https://github.com/weslleyfl/AppOrder.git
+3 - Ir no diretorio do projeto e abrir a aplicaçao via visual code code .
+3 - Inserir o diretorio principal no workspace
+3 - git init ou - No visual code clicar no SOURCE CONTROL e no icone do git e escolher o folder do workspace
+3 - git remote add origin https://github.com/weslleyfl/AppOrder.git -- logar no git por aqui
+5 - git add *
+6 - git commit -m "first commit" ou  No visual code clicar no SOURCE CONTROL
+8 - git push -u origin master
+
+se error
+git push origin master --force
+git fetch origin master
+
+git pull
+git merge
+git push -u origin master
+
+git fetch origin master
+
+git fetch origin master
+
+git config --global user.name weslleyfl
+
 …or create a new repository on the command line
 echo "# MeusProjetos" >> README.md
 git init
-git add README.md
+git add *
 git commit -m "first commit"
 git remote add origin https://github.com/weslleyfl/MeusProjetos.git
 git push -u origin master

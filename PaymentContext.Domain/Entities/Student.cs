@@ -8,7 +8,8 @@ namespace PaymentContext.Domain.Entities {
     public class Student : Entitie {
 
         private IList<Subscription> _subscriptions;
-        public Student (string firstName, string lastName, Document document, Email email, Name name) {
+        //public Student (string firstName, string lastName, Document document, Email email, Name name) {
+         public Student (Name name, Document document, Email email) {
             // FirstName = firstName;
             // LastName = lastName;
             Name = name;
@@ -31,6 +32,7 @@ namespace PaymentContext.Domain.Entities {
 
         public void AddSubscription (Subscription subscription) {
             // regras de negocio aqui
+
             // se ja tiver uma assinatura ativa, cancela
 
             // Cancela todas as outras assinaturas, e coloca esta como principal
@@ -43,15 +45,16 @@ namespace PaymentContext.Domain.Entities {
             }
 
             
-            // AddNotifications(new Contract()
-            //     .Requires()
-            //     .IsFalse(hasSubScriptionActive,"Student.subscription","Você já tem uma assinatura ativa")
-            // );
+            AddNotifications(new Contract()
+                .Requires()
+                .IsFalse(hasSubScriptionActive,"Student.Subscription","Você já tem uma assinatura ativa")
+                .AreEquals(0, subscription.Payments.Count, "Student.Subscription.Payments", "Essa assinatura não possui pagamentos")
+            );
 
             // Aqui vale fazer um teste, para validar se um usuario ja tem uma assinatura ativa
             // Alternativa
-            if (hasSubScriptionActive)
-                AddNotification("Student.subscription", "Você já tem uma assinatura ativa");
+            // if (hasSubScriptionActive)
+            //     AddNotification("Student.subscription", "Você já tem uma assinatura ativa");
 
         }
 

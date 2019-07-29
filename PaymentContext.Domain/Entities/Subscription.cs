@@ -30,7 +30,7 @@ namespace PaymentContext.Domain.Entities {
             );
             
             //if(Valid) // So adiciona se for valido
-            _payments.Add (payment);
+            _payments.Add(payment);
         }
 
         public void Activate () {

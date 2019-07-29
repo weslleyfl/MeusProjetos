@@ -8,20 +8,20 @@ namespace PaymentContext.Domain.ValueObjects {
             Number = number;
             Type = type;
 
-            AddNotifications (new Contract ()
+            AddNotifications(new Contract()
                 .Requires()
-                .IsTrue(Validate (), "Document.Number", "Documento inválido")
+                .IsTrue(Validate(), "Document.Number", "Documento inválido")
             );
         }
 
         public string Number { get; private set; }
         public EDocumentType Type { get; set; }
 
-        private bool Validate () {
+        private bool Validate() {
             if (Type == EDocumentType.CNPJ && Number.Length == 14)
                 return true;
 
-            if (Type == EDocumentType.CNPJ && Number.Length == 11)
+            if (Type == EDocumentType.CPF && Number.Length == 11)
                 return true;
 
             return false;

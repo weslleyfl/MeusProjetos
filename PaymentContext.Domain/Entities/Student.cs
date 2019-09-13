@@ -15,7 +15,7 @@ namespace PaymentContext.Domain.Entities {
             Name = name;
             Document = document;
             Email = email;
-            _subscriptions = new List<Subscription> ();
+            _subscriptions = new List<Subscription>();
 
             AddNotifications (name, document, email);            
         }
@@ -28,9 +28,12 @@ namespace PaymentContext.Domain.Entities {
         public Document Document { get; private set; }
         public Email Email { get; private set; }
         public Address Address { get; private set; }
-        public IReadOnlyCollection<Subscription> Subscriptions { get { return _subscriptions.ToArray (); } }
+        // public IReadOnlyCollection<Subscription> Subscriptions { get { return _subscriptions.ToArray (); } }
+        public IReadOnlyCollection<Subscription> Subscriptions => _subscriptions.ToArray(); 
 
-        public void AddSubscription (Subscription subscription) {
+        public void AddSubscription (Subscription subscription) 
+        {
+            // Validation logic...
             // regras de negocio aqui
 
             // se ja tiver uma assinatura ativa, cancela
@@ -55,6 +58,9 @@ namespace PaymentContext.Domain.Entities {
             // Alternativa
             // if (hasSubScriptionActive)
             //     AddNotification("Student.subscription", "Você já tem uma assinatura ativa");
+
+            if(Valid)
+            _subscriptions.Add(subscription);
 
         }
 

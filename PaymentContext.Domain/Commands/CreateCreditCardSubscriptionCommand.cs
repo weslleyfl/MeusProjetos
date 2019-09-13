@@ -1,3 +1,6 @@
+using System;
+using PaymentContext.Domain.Enums;
+
 namespace PaymentContext.Domain.Commands
 {
     public class CreateCreditCardSubscriptionCommand
